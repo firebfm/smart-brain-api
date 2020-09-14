@@ -73,9 +73,8 @@ app.post('/register', (req, res) => {
 app.get('/profile/:id', (req, res) => {
 	const { id } = req.params;
 	let found = false;
-	db.select('*').from('users').where({
-		id: id
-	}).then(user => {
+	db.select('*').from('users').where({id})
+		.then(user => {
 		console.log(user[0]);
 	})
 	if (!found) {
